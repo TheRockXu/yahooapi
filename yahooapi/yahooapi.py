@@ -53,6 +53,7 @@ def get_pricing(tickers, start_date='2006-1-1', end_date=LATEST_DATE, field='adj
         return pd.concat(dfs, axis=1).sort_index(ascending = True)
     else:
         data = get_stock_data(tickers, start_date, end_date)
+        data = [d for d in data if not ('type' in d)]
         dates = [datetime.fromtimestamp(d['date']) for d in data]
         data = pd.DataFrame(data, index=dates)[['adjclose', 'high', 'low', 'volume', 'close']]
         return data.sort_index(ascending = True)
