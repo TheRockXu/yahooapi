@@ -1,4 +1,4 @@
-# Inroduction
+# Introduction
 
 This is a simple API that pulls yahoo finance company price history page, parse it and return a panda dataframe
 
